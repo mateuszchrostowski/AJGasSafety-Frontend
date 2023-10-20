@@ -1,0 +1,14 @@
+.header-contact {
+    background-image: url('../Uploads/Dkn8-zPIbwo.jpg');
+    background-position: 50%;
+}
+
+.grid-details {
+    display: grid;
+    grid-template-columns: 80px auto;    
+}
+
+.phone {
+    font-size: inherit;
+    color: black;
+}

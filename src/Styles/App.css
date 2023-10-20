@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+    margin-right: 1em;
+    font-size: 1.4rem;
+    transition: color 0.5s;
+
+}
+
+a:hover {
+    color: rgb(224, 107, 11);
+    transition: color 0.5s;
+
+}
+
+a.active {
+    color: rgb(224, 107, 11);
+    text-decoration: underline;
+}
+
+
+
+a.none::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(224, 107, 11);
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+a.none:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+
+ul {
+    list-style-type: none;
+    display: flex;
+}
+
+header {
+    height: 30rem;
+    background-size: cover;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    line-height: 1.5em;
+    color: rgb(41, 41, 41);
+}
+
+h4 {
+    margin: 0.2em;
+}
+
+h5 {
+    color: rgb(185, 185, 185);
+    line-height: 2em;
+    margin-bottom: 4em;
+}
+
+
+section,
+.devider {
+    margin: 3em 4em;
+
+}
+
+button {
+    background-color: rgba(20, 19, 19, 0.885);
+    color: aliceblue;
+    height: 3em;
+}
+
+nav {   
+    position: absolute;
+    right: 0;
+}
+
+img {
+    width: max(308px, 40vw, 200px);
+    vertical-align: middle;
+}
+
+
+.section-flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.section-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+}
+
+.section-grid {
+    display: grid;
+    column-gap: 5em;
+    grid-template-areas: ". .";
+}
+
+@media screen and (max-width: 900px) {
+    .section-grid {
+        grid-template-areas:
+            "."
+            ".";
+        row-gap: 5em;
+        align-items: center;
+        justify-items: center;
+    }
+    img {
+        width: 70vw;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+}
+
+.devider {
+    height: 1px;
+    background-color: rgb(231, 231, 231);
+}
