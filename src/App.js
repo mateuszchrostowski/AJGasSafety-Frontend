@@ -7,8 +7,6 @@ import Services from './Components/Services';
 import Contact from './Components/Contact';
 
 
-
-
 function App() {
   return (
     <Router>
@@ -18,7 +16,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/about' element={<About />}/>
           <Route path='/services' element={<Services />}/>
-          <Route path='/contact' element={<Contact />}/>    
+          <Route path='/contact' element={<Contact />}/>          
         </Switch>
       </div>
     </Router>

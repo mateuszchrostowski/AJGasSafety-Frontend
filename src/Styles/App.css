@@ -3,6 +3,7 @@ body {
     font-family: 'Montserrat';
 }
 
+
 p {
     margin: 0;
 }
@@ -94,9 +95,9 @@ button {
     height: 3em;
 }
 
-nav {   
+nav {      
     position: absolute;
-    right: 0;
+    right: 0;    
 }
 
 img {
@@ -125,7 +126,28 @@ img {
     grid-template-areas: ". .";
 }
 
+
+.material-symbols-outlined {     
+    font-size: 2rem;
+    position: absolute;
+    height: 0;
+    right: 0;
+    visibility: hidden;
+    color: rgba(255, 255, 255, 0.822);
+    transition: .3s;
+    background: none;
+    border: none;
+}
+
+.material-symbols-outlined:hover {
+    color: rgb(224, 107, 11);
+    transition: .3s;
+}
+
 @media screen and (max-width: 900px) {
+    .hidden {        
+        visibility: hidden;             
+    }
     .section-grid {
         grid-template-areas:
             "."
@@ -140,6 +162,27 @@ img {
 
     a {
         font-size: 1rem;
+    }
+
+    .material-symbols-outlined {        
+        visibility: visible;
+        z-index: 2;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        /* right: 50%; */
+        /* margin-right: -50px; */        
+        width: 100vw;        
+        background-color: rgba(255, 255, 255, 0.384);        
+    }
+
+    li {
+        padding: .5rem;
     }
 }
 
