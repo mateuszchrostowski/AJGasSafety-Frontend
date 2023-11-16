@@ -161,9 +161,11 @@ img {
     }
 
     a {
-        padding: 1rem;
+        margin: 0;
+        padding:1rem 0 1rem 0;
         color: black;
         width: 100%;
+        text-align: center;
     }
 
     a:hover {
@@ -193,7 +195,7 @@ img {
     }
 
     li:hover {
-        background-color: rgba(117, 117, 117, 0.899);
+        background-color: rgba(202, 200, 200, 0.899);
     }
 
     nav {
@@ -205,7 +207,6 @@ img {
 
     li {
         width: 100%;
-        text-align: center;
     }
 }
 

@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { GOOGLE_MAPS_API_KEY } from '../config';
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import '../Styles/Contact.css';
 import '../Styles/Map.css';
@@ -9,7 +8,7 @@ import '../Styles/App.css';
 function Contact() {
 
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     });
 
     return (
