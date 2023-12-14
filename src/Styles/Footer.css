@@ -1,0 +1,26 @@
+.footer {
+    color: white;
+    background-color: rgb(84, 87, 87);
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.footer-block {
+    padding: 2rem;
+}
+
+.footer-title {    
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.footer-element {
+    display: block;
+    padding: 0;
+    font-size: small;
+    color: white;
+    text-align: left;
+}
+

@@ -25,7 +25,7 @@ class Navbar extends React.Component {
     render() {
         return (            
             <div>
-                <button onClick={() => this.ToggleButton()} class="material-symbols-outlined">menu</button>
+                <button onClick={() => this.ToggleButton()} className="material-symbols-outlined">menu</button>
                 <nav className= {(this.state.mobileMenu) ? "" : "hidden"}>
                     <ul>
                         <li><NavLink to={"/"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => this.ToggleButton()}>Home</NavLink></li>
