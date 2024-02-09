@@ -126,6 +126,7 @@ img {
 
 .section-grid {
     display: grid;
+    justify-content: center;
     column-gap: 5em;
     grid-template-areas: ". .";
 }
