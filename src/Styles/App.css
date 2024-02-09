@@ -6,6 +6,7 @@ body {
 
 p {
     margin: 0;
+    text-align: center;
 }
 
 a {
@@ -55,6 +56,7 @@ a.none:hover::after {
 ul {
     list-style-type: none;
     display: flex;
+    justify-content: flex-end;
 }
 
 header {
@@ -91,17 +93,20 @@ section,
 button {
     background-color: rgba(20, 19, 19, 0.885);
     color: aliceblue;
-    height: 3em;
+    height: 4em;
+    border-radius: .5rem;
+    font-family: 'Montserrat';
 }
 
-nav {      
-    position: absolute;
-    right: 0;    
+nav {
+    width: 100%;      
+    position: absolute;       
 }
 
 img {
     width: max(308px, 40vw, 200px);
     vertical-align: middle;
+    padding: 1rem;
 }
 
 
@@ -125,6 +130,12 @@ img {
     grid-template-areas: ". .";
 }
 
+.section-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 .material-symbols-outlined {     
     font-size: 2rem;
@@ -143,7 +154,7 @@ img {
     transition: .3s;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 995px) {
     .hidden {        
         visibility: hidden;             
     }

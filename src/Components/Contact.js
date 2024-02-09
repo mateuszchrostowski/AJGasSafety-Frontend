@@ -22,7 +22,7 @@ function Contact() {
             <div className='devider'></div>
             <section>
                 <h2>Details</h2>
-                <div class="grid-details">                    
+                <div className="grid-details">                    
                     <h4>Phone:</h4>
                     <h4><a className="phone" href="tel:+44123456789">+44 123 456 789</a></h4>
                     <h4>Adress:</h4>
