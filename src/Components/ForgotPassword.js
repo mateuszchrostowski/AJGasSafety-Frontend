@@ -2,18 +2,15 @@ import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import '../Styles/Forms.css'
 import { useAuth } from "../Contexts/AuthContext"
-import { useNavigate } from "react-router-dom"
 
 
-export default function Login() {
+export default function ResetPassword() {
     const emailRef = useRef()
        
     const { resetPassword } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
-    const [message, setMessage] = useState("")
-
-    const navigate = useNavigate()
+    const [message, setMessage] = useState("")   
     
 
     async function handleSubmit(e) {
@@ -24,8 +21,7 @@ export default function Login() {
             setError("")
             setLoading(true)
             await resetPassword(emailRef.current.value)
-            setMessage("Check your inbox for further instructions")
-            // navigate('/')
+            setMessage("Check your inbox for further instructions")            
         } catch {
             setError("Failed to reset password")
         }

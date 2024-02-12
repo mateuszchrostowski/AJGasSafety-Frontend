@@ -7,7 +7,7 @@ import Services from './Components/Services';
 import Contact from './Components/Contact';
 import SignUp from './Components/SignUp';
 import LogIn from './Components/LogIn';
-import ForgotPassword from './Components/ForgotPassword';
+import ResetPassword from './Components/ForgotPassword';
 import Footer from './Components/Footer';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,12 +15,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useAuth } from './Contexts/AuthContext';
 import Works from './Components/Works';
 
-function App() {
-  const { currentUser} = useAuth()
-  const dispatch = useDispatch();
-  const { userType, isLoggedIn } = useSelector((store) => store.user)
-  console.log({ isLoggedIn });
-  console.log(currentUser)
+function App() { 
+  // const dispatch = useDispatch();
+  // const { userType, isLoggedIn } = useSelector((store) => store.user) 
   
   
   return (
@@ -40,7 +37,7 @@ function App() {
             <Route path='/contact' element={<Contact />} />
             <Route path='/signup' element={<SignUp />} />
             <Route path='/login' element={<LogIn />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/forgot-password" element={<ResetPassword />} />
           </Switch>
           <Footer />
         </div>

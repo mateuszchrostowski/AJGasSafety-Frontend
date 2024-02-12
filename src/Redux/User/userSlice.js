@@ -20,7 +20,6 @@ export const userSlice = createSlice({
     }
 });
 
-//console.log(userSlice);
 
 export const {logIn, logOut} = userSlice.actions;
 

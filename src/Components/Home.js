@@ -21,17 +21,17 @@ class Home extends React.Component {
         return (
             <div>
                 <header className='header-home'>
-                    <p>AJ Gas Safety</p>
+                    <p>AJ Safety Gas Engineer</p>
                 </header>
                 <section className='section-flex-column'>
                     <h5>WHAT WE BELIEVE IN</h5>
-                    <h2>Grow your business, establish your brand, and put your customers first.</h2>
+                    <h2>The perfect warmth for your home, the perfect balance between affordability and comfort, only with gas heating</h2>
                 </section>
                 <section className='section-grid'>
                     <div>
                         <h5>ABOUT</h5>
                         <h2>Who we are</h2>
-                        <h5>Nulla vel sodales tellus, quis condimentum enim. Nunc porttitor venenatis feugiat. Etiam quis faucibus erat, non accumsan leo. Aliquam erat volutpat. Vestibulum ac faucibus eros. Cras ullamcorper gravida tellus ut consequat.</h5>
+                        <h5>AJ Safety Gas Engineer is a well-established and reputable domestic and commercial heating company based in Evesham, England. Having over 5 years of experience in the heating industry, AJ Safety Gas Engineer Company is dedicated to providing a professional and reliable service both locally and nationwide, catering to all domestic and commercial needs including residential, leisure, and retail sectors.</h5>
                         <NavLink to={"/about"}><button>See More</button></NavLink>
                     </div>
                     <img src={photo}></img>
