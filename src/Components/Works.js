@@ -56,7 +56,7 @@ export default function Works() {
             </section>
             <section className='section-wrap'>
                 {imageList.map((url) => {
-                    return <img loading="lazy" style={{objectFit:"cover", height:"18rem", width:"18rem"}} className="work-photo" key={url} src={url} />
+                    return <img loading="lazy" className="work-photo" key={url} src={url} />
                 })}
             </section>
         </div>

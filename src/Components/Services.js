@@ -13,7 +13,7 @@ class Services extends React.Component {
                 </header>
                 <section className='section-flex-column'>
                     <h5>WHAT WE DO</h5>
-                    <h2>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h2>
+                    <h2>All of our heating system installations include a manufacturer’s guarantee, completed commissioning documents and gas certification.</h2>
                 </section>
                 <Table/>
             </div>

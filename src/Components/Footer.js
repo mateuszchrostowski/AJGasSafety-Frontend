@@ -18,13 +18,13 @@ class Footer extends React.Component {
                 </div>
                 <div className="footer-block">
                     <p className="footer-title">Contact us</p>
-                    <p className="footer-element">Telephone</p>
-                    <p className="footer-element">E-mail</p>
+                    <a className="footer-element" href="tel:+447562806243">+44 7562 806243</a>
+                    {/* <p className="footer-element">E-mail</p> */}
                 </div>
                 <div className="footer-block">
                     <p className="footer-title">Social Media</p>
-                    <p className="footer-element">Facebook</p>
-                    <p className="footer-element">Instagram</p>
+                    <a href="https://www.facebook.com/profile.php?id=100063745923138" className="footer-element">Facebook</a>
+                    {/* <p className="footer-element">Instagram</p> */}
                 </div>
 
             </footer>

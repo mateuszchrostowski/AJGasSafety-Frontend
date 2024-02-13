@@ -1,79 +1,10 @@
 table {
     font-family: Montserrat;
 }
-
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
-} */
-
-/* body,
-html {
-    height: 100%;
-    font-family: sans-serif
-} */
-
-/* a {
-    margin: 0;
-    transition: all .4s;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
-    -moz-transition: all .4s
-}
-
-a:focus {
-    outline: none !important
-}
-
-a:hover {
-    text-decoration: none
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0
-}
-
-p {
-    margin: 0
-}
-
-ul,
-li {
-    margin: 0;
-    list-style-type: none
-} */
-
-/* input {
-    display: block;
-    outline: none;
-    border: none !important
-} */
-
 textarea {
     display: block;
     outline: none
 }
-
-textarea:focus,
-/* input:focus {
-    border-color: transparent !important
-} */
-
-/* button {
-    outline: none !important;
-    border: none;
-    background: 0 0
-} */
-
-/* button:hover {
-    cursor: pointer
-} */
 
 iframe {
     border: none !important
@@ -88,7 +19,7 @@ iframe {
 
 .container-table100 {
     width: 90vw;
-    min-height: 100vh;    
+    min-height: 80vh;    
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -222,8 +153,11 @@ tbody tr:hover {
         display: block
     }
 
-    table thead {
-        display: none
+    th.column3 {
+        height: inherit;
+        display: flex;
+        justify-content: left;
+        align-items: center;
     }
 
     table tbody tr {
@@ -231,8 +165,7 @@ tbody tr:hover {
         padding: 37px 0
     }
 
-    table tbody tr td {
-        padding-left: 40% !important;
+    table tbody tr td {        
         margin-bottom: 24px
     }
 
@@ -249,31 +182,7 @@ tbody tr:hover {
         width: 40%;
         left: 30px;
         top: 0
-    }
-
-    table tbody tr td:nth-child(1):before {
-        content: "Date"
-    }
-
-    table tbody tr td:nth-child(2):before {
-        content: "Order ID"
-    }
-
-    table tbody tr td:nth-child(3):before {
-        content: "Name"
-    }
-
-    table tbody tr td:nth-child(4):before {
-        content: "Price"
-    }
-
-    table tbody tr td:nth-child(5):before {
-        content: "Quantity"
-    }
-
-    table tbody tr td:nth-child(6):before {
-        content: "Total"
-    }
+    }    
 
     .column4,
     .column5,
@@ -287,10 +196,12 @@ tbody tr:hover {
     .column1,
     .column2,
     .column3 {
-        width: 100%
+        text-align: left;
+        width: fit-content;
     }
 
     tbody tr {
+        
         font-size: 14px
     }
 }

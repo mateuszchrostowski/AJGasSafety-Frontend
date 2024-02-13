@@ -17,16 +17,16 @@ function Contact() {
                 <p>Contact</p>
             </header>
             <section className='section-flex-column'>                
-                <h2>Visit us in England</h2>
+                <h2>We serve in Evesham, Malvern, Redditch and Gloucester.</h2>
             </section>
             <div className='devider'></div>
             <section>
                 <h2>Details</h2>
                 <div className="grid-details">                    
                     <h4>Phone:</h4>
-                    <h4><a className="phone" href="tel:+44123456789">+44 123 456 789</a></h4>
+                    <h4><a className="phone" href="tel:+447562806243">+44 7562 806243</a></h4>
                     <h4>Adress:</h4>
-                    <h4>10 Downing StLondon SW1A 2AB, Wielka Brytania</h4>
+                    <h4>10 Damson Drive, Evesham, WR11 2AE</h4>
                 </div>
             </section>
             <section className='section-flex-column map'>

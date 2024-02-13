@@ -2,3 +2,8 @@
     background-image: url('../Uploads/4CNNH2KEjhc.jpg');
     background-position: 50%;
 }
+
+.justified-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
