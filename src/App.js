@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import './Styles/App.css';
 import Navbar from './Components/Navbar';
@@ -9,36 +9,36 @@ import SignUp from './Components/SignUp';
 import LogIn from './Components/LogIn';
 import ResetPassword from './Components/ForgotPassword';
 import Footer from './Components/Footer';
-
-import { useDispatch, useSelector } from 'react-redux';
-// import { logIn, logOut } from './Redux/User/userSlice';
-import { useAuth } from './Contexts/AuthContext';
 import Works from './Components/Works';
+import Unauthorized from './Components/Unauthorized';
+import ProtectedRoutes from './Components/ProtectedRoutes';
+import Profile from './Components/Profile';
 
-function App() { 
-  // const dispatch = useDispatch();
-  // const { userType, isLoggedIn } = useSelector((store) => store.user) 
-  
-  
+
+
+function App() {   
   return (
       <Router>
         <div className="App">
-          {/* {isLoggedIn
-            ? <button onClick={() => dispatch(logOut())}>Wyloguj</button>
-            : <button onClick={() => dispatch({ type: "user/logIn", payload: currentUser.email })}>Zaloguj</button>
-          }
-          <p>User: {userType}</p> */}
+          
           <Navbar />
-          <Switch>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/services' element={<Services />} />
-            <Route path='/works' element={<Works />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/signup' element={<SignUp />} />
-            <Route path='/login' element={<LogIn />} />
-            <Route path="/forgot-password" element={<ResetPassword />} />
-          </Switch>
+          <Routes>            
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/services' element={<Services />} />
+              <Route path='/works' element={<Works />} />
+              <Route path='/contact' element={<Contact />} />
+
+            <Route element={<Unauthorized />}> 
+              <Route path='/signup' element={<SignUp />} />
+              <Route path='/login' element={<LogIn />} />
+              <Route path="/forgot-password" element={<ResetPassword />} />
+            </Route>
+
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/profile' element={<Profile />}/>
+            </Route>
+          </Routes>
           <Footer />
         </div>
       </Router>    

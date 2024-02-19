@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import '../Styles/Forms.css'
+import '../Styles/App.css';
 import { useAuth } from "../Contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';

@@ -79,6 +79,11 @@ h5 {
     margin-bottom: 4em;
 }
 
+#error {    
+    color: brown;
+    padding: 1rem;
+}
+
 
 section,
 .devider {
@@ -86,9 +91,10 @@ section,
 }
 
 button {
+    margin-top: 0.5rem;    
     background-color: rgba(20, 19, 19, 0.885);
     color: aliceblue;
-    height: 4em;
+    height: 2.8rem;
     border-radius: .5rem;
     font-family: 'Montserrat';
 }
@@ -209,6 +215,9 @@ img {
     }
 
     li {
+        display: flex;
+        justify-content: center;
+        align-items: center;    
         width: 100%;
     }
 }

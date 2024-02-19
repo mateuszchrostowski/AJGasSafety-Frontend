@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react"
 import '../Styles/Forms.css'
+import '../Styles/App.css';
 import { useAuth } from "../Contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 

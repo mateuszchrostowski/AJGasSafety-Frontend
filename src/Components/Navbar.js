@@ -33,9 +33,9 @@ export default function Navbar() {
             <button onClick={() => ToggleButton()} className="material-symbols-outlined">menu</button>
             <nav className={(mobileMenu) ? "" : "hidden"}>
                 <ul>                    
-                    {currentUser ? <a> Hi, {currentUser.email} </a> : <></>}
+                    {currentUser ?  <li><Link to={"/profile"} onClick={ToggleButton}>{currentUser.displayName ? currentUser.displayName: currentUser.email}</Link></li> : <></>}
                     {error && <p id="error">{error}</p>}
-                    <li> {!currentUser ? <NavLink to={"/login"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => ToggleButton()}>Log In</NavLink> : <Link onClick={handleLogout}>Log Out</Link>}</li>
+                    <li> {!currentUser ? <NavLink to={"/login"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => ToggleButton()}>Log In</NavLink> : <Link onClick={() => {handleLogout(); ToggleButton()}}>Log Out</Link>}</li>
                     <li style={{ marginRight: "auto" }}>{!currentUser ? <NavLink to={"/signup"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => ToggleButton()}>Sign Up</NavLink> : <></>}</li>
                     <li><NavLink to={"/"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => ToggleButton()}>Home</NavLink></li>
                     <li><NavLink to={"/about"} className={(navData) => (navData.isActive ? "active" : 'none')} onClick={() => ToggleButton()}>About</NavLink></li>
