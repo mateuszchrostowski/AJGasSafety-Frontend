@@ -16,10 +16,10 @@ const app = firebase.initializeApp({
 
 export const auth = app.auth()
 
-const firestore = app.firestore()
+const firestore = app.firestore();
+
 export const database = {
-  folders: firestore.collection('photos'),
-  files: firestore.collection('files'),
+  users: firestore.collection('users'),
   getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp
 }
 

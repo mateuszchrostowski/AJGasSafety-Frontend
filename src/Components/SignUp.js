@@ -3,12 +3,13 @@ import '../Styles/Forms.css'
 import '../Styles/App.css';
 import { useAuth } from "../Contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
+import {database} from '../firebase';
 
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { signup } = useAuth()
+    const { signup, currentUser } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
@@ -23,7 +24,31 @@ export default function Signup() {
         try {
             setError("")
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value).then((e) => {
+                console.log(e);
+                database.users.doc(`${e.user.uid}`).set({
+                    userId: e.user.uid,
+                    displayName: e.user.displayName,
+                    firstName: null,
+                    lastName: null,
+                    email: e.user.email,
+                    emailVerified: e.user.emailVerified,
+                    photoURL: e.user.photoURL,
+                    address: {
+                        street: null,
+                        city: null,
+                        postcode: null
+                    },
+                    phoneNumber: null,
+                    refreshToken: e.user.refreshToken,
+                    metadata: {
+                        creationTime: e.user.metadata.creationTime,
+                        lastSignInTime: e.user.metadata.lastSignInTime
+                    }
+                        
+                })
+            }
+            )
             navigate('/')
         } catch {
             setError("Failed to create an account")

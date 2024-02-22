@@ -13,8 +13,7 @@ export default function Navbar() {
     const [error, setError] = useState("")
 
     function ToggleButton() {
-        setMobileMenu(!mobileMenu)
-        console.log(mobileMenu)
+        setMobileMenu(!mobileMenu)        
     };
     
     async function handleLogout() {

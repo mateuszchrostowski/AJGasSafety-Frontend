@@ -1,44 +1,69 @@
 import { useAuth } from "../Contexts/AuthContext";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import '../Styles/Profile.css';
 import '../Styles/App.css';
+import { database } from '../firebase';
 
 export default function Profile() {
     const { currentUser, updateName, updatePhoneNumber } = useAuth();
     const nameRef = useRef();
     const telRef = useRef();
     const [error, setError] = useState("")
+    const [userData, setUserData] = useState({})
     const [loading, setLoading] = useState(false)
+    const userDataRef = database.users.doc(`${currentUser.uid}`);
+   
 
-    console.log(currentUser)
+    useEffect(() => {
+        userDataRef.get().then((doc) => {
+            setUserData(doc.data())
+        })
+    }, [])  
+    
 
-    const handleUpdateProfile = (name) => {
 
+    const handleUpdateProfile = (name, tel) => {
         const promises = []
         setLoading(true)
         setError("")
 
-
-
+       
         if (nameRef.current.value !== currentUser.displayName) {
-            promises.push(updateName(name))
+            promises.push(updateName(name))            
         }
-        // if (telRef.current.value !== currentUser.phoneNumber) {
-        //     promises.push(updatePhoneNumber(tel))
-        // }
 
+        if (nameRef.current.value !== userData.displayName) {            
+            promises.push(handleName(name))
+        }
+
+        if (telRef.current.value !== userData.phoneNumber) {
+            promises.push(handleNumber(tel))
+        }
+     
 
         Promise.all(promises)
-        // .then(() => {
-        //     window.location.reload()
-        // })
-        .catch(() => {
-          setError("Failed to update account")
-        })
-        .finally(() => {
-          setLoading(false)
-        })        
-                
+            .then(() => {
+                window.location.reload()
+            })
+            .catch(() => {
+                setError("Failed to update account")
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }
+
+    const handleNumber = (tel) => {
+        database.users.doc(`${currentUser.uid}`).set({
+            phoneNumber: tel
+        }, { merge: true })
+    }
+    
+    const handleName = (name) => {
+        database.users.doc(`${currentUser.uid}`).set({
+            displayName: name
+        }, { merge: true })
     }
 
     return (
@@ -68,12 +93,12 @@ export default function Profile() {
                     <h4 className="profile-title">Phone Number</h4>
                     <input
                         type="number"
-                        placeholder={!currentUser.phoneNumber ? "Not set" : null}
-                        defaultValue={currentUser.phoneNumber ? currentUser.phoneNumber : null}
+                        placeholder={!userData.phoneNumber ? "Not set" : null}
+                        defaultValue={userData.phoneNumber ? userData.phoneNumber : null}
                         ref={telRef}>
-                    </input>
+                    </input>                                      
                 </div>
-                <button onClick={() => handleUpdateProfile(nameRef.current.value)}>Update</button>
+                <button onClick={() => handleUpdateProfile(nameRef.current.value, telRef.current.value)}>Update</button>
             </section>
         </div>)
 
