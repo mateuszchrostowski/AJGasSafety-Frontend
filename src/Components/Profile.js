@@ -5,8 +5,9 @@ import '../Styles/App.css';
 import { database } from '../firebase';
 
 export default function Profile() {
-    const { currentUser, updateName, updatePhoneNumber } = useAuth();
+    const { currentUser, updateName } = useAuth();
     const nameRef = useRef();
+    const lastNameRef = useRef();
     const telRef = useRef();
     const [error, setError] = useState("")
     const [userData, setUserData] = useState({})
@@ -17,12 +18,15 @@ export default function Profile() {
     useEffect(() => {
         userDataRef.get().then((doc) => {
             setUserData(doc.data())
-        })
+        })        
     }, [])  
     
+    const showState = () => [
+        console.log(telRef.current.value),
+        console.log(userData)
+    ]
 
-
-    const handleUpdateProfile = (name, tel) => {
+    const handleUpdateProfile = (name, lastName, tel) => {
         const promises = []
         setLoading(true)
         setError("")
@@ -33,10 +37,10 @@ export default function Profile() {
         }
 
         if (nameRef.current.value !== userData.displayName) {            
-            promises.push(handleName(name))
+            promises.push(handleName(name, lastName))
         }
 
-        if (telRef.current.value !== userData.phoneNumber) {
+        if (telRef.current.value !== userData.phoneNumber || telRef.current.value.length === 0) {
             promises.push(handleNumber(tel))
         }
      
@@ -60,9 +64,11 @@ export default function Profile() {
         }, { merge: true })
     }
     
-    const handleName = (name) => {
+    const handleName = (name, lastName) => {
         database.users.doc(`${currentUser.uid}`).set({
-            displayName: name
+            displayName: name,
+            firstName: name,
+            lastName: lastName
         }, { merge: true })
     }
 
@@ -78,11 +84,19 @@ export default function Profile() {
             <div className='devider'></div>
             <section className='section-profile-grid'>
                 <div>
-                    <h4 className="profile-title">Full Name</h4>
+                    <h4 className="profile-title">First Name</h4>
                     <input
                         placeholder={!currentUser.displayName ? "Not set" : null}
                         defaultValue={currentUser.displayName ? currentUser.displayName : null} type="text"
                         ref={nameRef}>
+                    </input>
+                </div>
+                <div>
+                    <h4 className="profile-title">Last Name</h4>
+                    <input
+                        placeholder={userData && !userData.lastName ? "Not set" : null}
+                        defaultValue={userData && userData.lastName ? userData.lastName : null} type="text"
+                        ref={lastNameRef}>
                     </input>
                 </div>
                 <div>
@@ -93,12 +107,15 @@ export default function Profile() {
                     <h4 className="profile-title">Phone Number</h4>
                     <input
                         type="number"
-                        placeholder={!userData.phoneNumber ? "Not set" : null}
-                        defaultValue={userData.phoneNumber ? userData.phoneNumber : null}
+                        placeholder={userData && typeof userData.phoneNumber === "string" && userData.phoneNumber.length === 0 ? "Not Set" : null}
+                        defaultValue={userData && userData.phoneNumber ? userData.phoneNumber : null}
                         ref={telRef}>
                     </input>                                      
                 </div>
-                <button onClick={() => handleUpdateProfile(nameRef.current.value, telRef.current.value)}>Update</button>
+                <button onClick={() => handleUpdateProfile(nameRef.current.value, lastNameRef.current.value, telRef.current.value)}>Update</button>
+                <button                
+                onClick={showState}
+                >show</button>
             </section>
         </div>)
 

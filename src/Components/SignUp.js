@@ -4,25 +4,30 @@ import '../Styles/App.css';
 import { useAuth } from "../Contexts/AuthContext"
 import { useNavigate } from "react-router-dom"
 import {database} from '../firebase';
+import { NotificationContainer, NotificationManager } from "react-notifications";
+
+
 
 export default function Signup() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
     const { signup, currentUser } = useAuth()
-    const [error, setError] = useState("")
+    const [errorTitle, setErrorTitle] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    
 
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError("Passwords do not match")
-        }
+        if (passwordRef.current.value !== passwordConfirmRef.current.value) {    
+            return [setErrorMessage("Passwords do not match"), setErrorTitle("Signing up has failed"), NotificationManager.error(errorMessage, errorTitle)]                     
+        }       
 
         try {
-            setError("")
+            setErrorMessage("")
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value).then((e) => {
                 console.log(e);
@@ -51,17 +56,17 @@ export default function Signup() {
             )
             navigate('/')
         } catch {
-            setError("Failed to create an account")
+            setErrorMessage("Failed to create an account")
+            NotificationManager.error(errorMessage, errorTitle)
         }
 
         setLoading(false)
     }
 
-    return (
+    return (           
         <div className="form">
             <div className="form-body">
                 <h2 className="title-color">Sign Up</h2>
-                {error && <p id="error">{error}</p>}
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">
                         E-mail:
@@ -95,9 +100,10 @@ export default function Signup() {
                     </input>
                     <button disabled={loading} type="submit">
                         Sign Up
-                    </button>
-                </form>
-            </div>
-        </div>
+                    </button>                   
+                </form>                
+                <NotificationContainer/>
+            </div>            
+        </div> 
     )
 }
