@@ -15,13 +15,16 @@ export default function PhotoModal({
         <>
             <div className="overlay dismiss" onClick={handleClick}>
                 <img src={clickedImg} alt="bigger pic" />
-                <span className="dismiss" onClick={handleClick}>
+                {/* <span className="dismiss" onClick={handleClick}>
                     X
+                </span> */}
+                <span class="close-button dismiss material-symbols-outlined">
+                    close
                 </span>
-                <div onClick={handelRotationLeft} className="overlay-arrows_left">                   
-                        <span class="material-symbols-outlined navigate-button">
+                <div onClick={handelRotationLeft} className="overlay-arrows_left">
+                    <span class="material-symbols-outlined navigate-button">
                         navigate_before
-                        </span>                    
+                    </span>
                 </div>
                 <div onClick={handelRotationRight} className="overlay-arrows_right ">
                     <span class="material-symbols-outlined navigate-button">

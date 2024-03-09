@@ -80,10 +80,7 @@ export default function Works() {
             })
         })
     }, [])
-
-    const show = () => {
-        console.log(imageList.length)
-    }
+    
 
     return (
         <div>
@@ -91,8 +88,7 @@ export default function Works() {
                 <p>Our Works</p>
             </header>
             <section className='section-flex-column'>
-                <h2>This is how we do it</h2>
-                <button onClick={show}>Console</button>
+                <h2>This is how we do it</h2>                
                 {currentUser && currentUser.uid == process.env.REACT_APP_FIREBASE_ADMIN_UID ? <label>
                     <input type="file" onChange={(event) => {
                         setImageUpload(event.target.files[0]);
