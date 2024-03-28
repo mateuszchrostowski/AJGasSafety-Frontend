@@ -54,7 +54,7 @@ export default function Signup() {
                 })
             }
             )
-            navigate('/')
+            navigate('/profile')
         } catch {
             setErrorMessage("Failed to create an account")
             NotificationManager.error(errorMessage, errorTitle)

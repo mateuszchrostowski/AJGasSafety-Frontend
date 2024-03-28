@@ -86,17 +86,24 @@ h5 {
 
 
 section,
-.devider {
+.devider {      
     margin: 3em 4em;
 }
 
 button {
     margin-top: 0.5rem;
-    background-color: rgba(20, 19, 19, 0.885);
+    background-color: rgba(20, 19, 19, 0.781);
     color: aliceblue;
     height: 2.8rem;
+    border-style: none;
     border-radius: .5rem;
     font-family: 'Montserrat';
+    transition: .15s;
+}
+
+button:hover {
+    background-color: rgba(136, 66, 1, 0.788);
+    transition: .15s;
 }
 
 nav {
@@ -172,7 +179,7 @@ img {
     }
 
     section,
-    .devider {
+    .devider {        
         margin: 3em 2em;
     }
 

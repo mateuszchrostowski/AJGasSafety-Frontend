@@ -6,3 +6,23 @@
 .profile-title {
     text-align: left;
 }
+
+.profile-option {
+    margin-right: 1rem;
+}
+
+.section-profile-grid {    
+    display: grid;    
+    grid-template-columns: min-content min-content;
+    float: left;
+    width: 90%;       
+}
+
+@media screen and (max-width: 460px) {
+    .section-profile-grid {
+        justify-content: center;
+        float: none;
+    }
+}
+
+

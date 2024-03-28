@@ -83,7 +83,7 @@ export default function Profile() {
             </section>
             <div className='devider'></div>
             <section className='section-profile-grid'>
-                <div>
+                <div className="profile-option">
                     <h4 className="profile-title">First Name</h4>
                     <input
                         placeholder={!currentUser.displayName ? "Not set" : null}
@@ -91,7 +91,7 @@ export default function Profile() {
                         ref={nameRef}>
                     </input>
                 </div>
-                <div>
+                <div className="profile-option">
                     <h4 className="profile-title">Last Name</h4>
                     <input
                         placeholder={userData && !userData.lastName ? "Not set" : null}
@@ -99,11 +99,11 @@ export default function Profile() {
                         ref={lastNameRef}>
                     </input>
                 </div>
-                <div>
+                <div className="profile-option">
                     <h4 className="profile-title">E-Mail</h4>
                     <input type="email" value={currentUser.email} disabled></input>
                 </div>
-                <div>
+                <div className="profile-option">
                     <h4 className="profile-title">Phone Number</h4>
                     <input
                         type="number"
@@ -111,9 +111,12 @@ export default function Profile() {
                         defaultValue={userData && userData.phoneNumber ? userData.phoneNumber : null}
                         ref={telRef}>
                     </input>                                      
-                </div>
-                <button onClick={() => handleUpdateProfile(nameRef.current.value, lastNameRef.current.value, telRef.current.value)}>Update</button>                
-            </section>
+                </div>                                
+            </section>            
+            <section>
+            <button onClick={() => handleUpdateProfile(nameRef.current.value, lastNameRef.current.value, telRef.current.value)}>Update
+                </button>
+            </section>            
         </div>)
 
 }
