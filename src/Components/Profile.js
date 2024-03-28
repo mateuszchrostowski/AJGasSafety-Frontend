@@ -112,10 +112,7 @@ export default function Profile() {
                         ref={telRef}>
                     </input>                                      
                 </div>
-                <button onClick={() => handleUpdateProfile(nameRef.current.value, lastNameRef.current.value, telRef.current.value)}>Update</button>
-                <button                
-                onClick={showState}
-                >show</button>
+                <button onClick={() => handleUpdateProfile(nameRef.current.value, lastNameRef.current.value, telRef.current.value)}>Update</button>                
             </section>
         </div>)
 
