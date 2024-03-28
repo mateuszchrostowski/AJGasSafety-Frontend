@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import '../Styles/Forms.css'
 import '../Styles/App.css';
 import { useAuth } from "../Contexts/AuthContext"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import {database} from '../firebase';
 import { NotificationContainer, NotificationManager } from "react-notifications";
 
@@ -98,6 +98,7 @@ export default function Signup() {
                         placeholder="Confirm your password"
                         required>
                     </input>
+                    <div className="simple-text">{`Already have an account?` + ' '}<Link to="/login" className="link">Login</Link></div> 
                     <button disabled={loading} type="submit">
                         Sign Up
                     </button>                   

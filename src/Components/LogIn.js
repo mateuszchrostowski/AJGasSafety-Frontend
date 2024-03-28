@@ -56,7 +56,7 @@ export default function Login() {
                         placeholder="Enter your password"
                         required>
                     </input>
-                    <Link to="/forgot-password" className="link">Forgot Password?</Link>                                   
+                    <Link to="/forgot-password" className="link">Forgot Password?</Link>                                                      
                     <button disabled={loading} type="submit">
                         Log In
                     </button>
